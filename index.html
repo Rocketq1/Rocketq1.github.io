@@ -1,9 +1,34 @@
 <html>
-	<head>
-		<title>Mi página de ejemplo</title>
-	</head>
-	<body>
-	Aquí va el contenido
-		<img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a">
-	</body>
+  <head>
+    <title>My App</title>
+    <style>
+      .player {
+        width: 100%;
+        height: 100%;
+       
+      }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/can-autoplay@3.0.0/build/can-autoplay.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+  </head>
+  <body style="background-color:black;">
+
+    <div class="app">
+        <div class="player"></div>
+    </div>
+    <script>
+      var player;
+      canAutoplay.video().then(function(o) {
+        var cap = o.result === true;
+        player = new Clappr.Player({
+          source: 'https://hls.lbs.pw/hls/bel5/playlist.m3u8',
+          parent: '.player',
+          height: '100%',
+          width: '100%',
+          mute: 'true',
+          autoPlay: 'true',
+        });
+      });
+    </script>
+  </body>
 </html>
